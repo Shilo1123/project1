@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" name="input" id="input">
+  <p id="paragraph">Hello Shilo</p>
+  <button type="button" name="reset" id="reset" >Reset Me!</button>
+  <script>
+    const myText = localStorage.getItem("myText")
+if (myText) {
+  document.getElementById("paragraph").innerText = myText
+}
+
+document.getElementById("input").addEventListener("change", (ev)=> {
+  const newValue = ev.target.value
+  document.getElementById("paragraph").innerText = newValue
+  localStorage.setItem("myText", newValue)
+})
+
+document.getElementById("reset").addEventListener("click", ()=> {
+  localStorage.clear()
+})
+
+  </script>
+</body>
+</html>
